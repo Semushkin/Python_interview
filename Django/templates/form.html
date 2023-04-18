@@ -1,0 +1,30 @@
+{% block form %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label for="product_form.name.id_for_label">Product name</label></td>
+            <td>{{ product_form.name }}</td>
+        </tr>
+        <tr>
+            <td><label for="product_form.data_received.id_for_label">Date received</label></td>
+            <td>{{ product_form.data_received }}</td>
+        </tr>
+        <tr>
+            <td><label for="product_form.price.id_for_label"></label>Price</td>
+            <td>{{ product_form.price }}</td>
+        </tr>
+        <tr>
+            <td><label for="product_form.unit.id_for_label">Quantity</label></td>
+            <td>{{ product_form.quantity }}</td>
+        </tr>
+        <tr>
+            <td><label for="product_form.name.id_for_label">Supplier</label></td>
+            <td>{{ product_form.supplier }}</td>
+        </tr>
+    </table>
+    <div>
+        <button class="btn btn-sm btn-success" type="submit">Сохранить</button>
+    </div>
+</form>
+{% endblock %}
