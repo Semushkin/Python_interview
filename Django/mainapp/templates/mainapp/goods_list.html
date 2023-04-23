@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<table class="table table-sm">
+<table id="good-table" class="table table-sm">
     <tr>
         <th></th>
         <th>Product name</th>
@@ -10,16 +10,7 @@
         <th>Supplier</th>
     </tr>
     {% if products %}
-        {% for product in products %}
-            <tr>
-                <td><a href="{% url 'mainapp:edit_product' product.pk %}">Edit</a></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.data_received }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.quantity }}</td>
-                <td>{{ product.supplier }}</td>
-            </tr>
-        {% endfor %}
+        {% include 'mainapp/partial_goods_list.html' %}
     {% else %}
         <tr>
             <td>----</td>
@@ -31,5 +22,16 @@
         </tr>
     {% endif %}
 </table>
-<a class="btn btn-sm btn-success" href="{% url 'mainapp:add_product' %}">Add new Product</a>
+<!--<a class="btn btn-sm btn-success" href="{% url 'mainapp:add_product' %}">Add new Product</a>-->
+
+<button type="button" class="js-create-good" data-url="{% url 'mainapp:add_product' %}">Add new Product</button>
+
+<div class="modal fade" id="modal-good">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
 {% endblock %}
