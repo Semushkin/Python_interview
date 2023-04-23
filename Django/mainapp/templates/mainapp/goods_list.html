@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<table id="good-table" class="table table-sm">
+    <tr>
+        <th></th>
+        <th>Product name</th>
+        <th>Date received</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Supplier</th>
+    </tr>
+    {% if products %}
+        {% include 'mainapp/partial_goods_list.html' %}
+    {% else %}
+        <tr>
+            <td>----</td>
+            <td>----</td>
+            <td>----</td>
+            <td>----</td>
+            <td>----</td>
+            <td>----</td>
+        </tr>
+    {% endif %}
+</table>
+<!--<a class="btn btn-sm btn-success" href="{% url 'mainapp:add_product' %}">Add new Product</a>-->
+
+<button type="button" class="js-create-good" data-url="{% url 'mainapp:add_product' %}">Add new Product</button>
+
+<div class="modal fade" id="modal-good">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

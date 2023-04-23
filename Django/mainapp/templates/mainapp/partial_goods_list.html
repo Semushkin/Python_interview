@@ -1,0 +1,10 @@
+{% for product in products %}
+    <tr>
+        <td><a href="{% url 'mainapp:edit_product' product.pk %}">Edit</a></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.data_received|date:"d.m.Y" }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.supplier }}</td>
+    </tr>
+{% endfor %}
